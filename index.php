@@ -1,24 +1,35 @@
+<?php
+error_reporting(-1);
+
+$title = 'hello world';
+$title = 'page title';
+$fruit = 'apple';
+$винни_пух = "Hello I'm Winnie."; // оказывается так тоже можно
+$winnie_pooh = "Hello I'm Winnie. I have 2 {$fruit}s";
+
+
+//регистрозависимость
+$var = '123';
+$Var = '456';
+
+// определение констант
+
+define('PAGE','new page'); // такой способ используется только в начале кода
+const PAGE2 = 'new const'; // не работает ниже версии 5.3
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Урок 1</title>
+    <title>Урок 2</title>
 </head>
 <body>
-    <p>Привет мир</p>
-    <?php
-    // однострочный комментарий
-    # тоже однострочный комментарий
-    /*
-    это многострочный комментарий
-    здесь не выполняются команды
-    echo "Hello World!";    
-    */
-    echo "Hello world!";
-    ?>
-    <?php echo '<p>Hello World2!</p>'?>
-    <?php echo '<p>Hello World3!</p>'?>
-    <?php print '<p>Hello World4!</p>'?>
+    <!-- константы в кавычках не обрабатываются -->
+    <h1><?php echo PAGE; ?></h1>
+    <p><?php echo $winnie_pooh; ?></p>
+    <p><?php echo $Var; ?></p> 
+    <p><?php echo PAGE2; ?></p> 
 </body>
 </html>
