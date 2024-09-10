@@ -1,35 +1,48 @@
 <?php
 error_reporting(-1);
 
-$title = 'hello world';
-$title = 'page title';
-$fruit = 'apple';
-$винни_пух = "Hello I'm Winnie."; // оказывается так тоже можно
-$winnie_pooh = "Hello I'm Winnie. I have 2 {$fruit}s";
+ // $this = '123';// так нельзя именовать свою переменную
 
 
-//регистрозависимость
-$var = '123';
-$Var = '456';
+// типы данных
+ /*
+boolean - True | FALSE
+integer - 123
+float - 1.2
+string - 'this is string'
+(HEREDOC) - аналог двойных кавычек
+(NOWDOC) - аналог одинарных кавычек
+*/
 
-// определение констант
+// $bool = true; // выведет - 1
+// $bool2 = false; 
+// echo $bool2;  // выведет пустую строку
+// var_dump($bool2);
 
-define('PAGE','new page'); // такой способ используется только в начале кода
-const PAGE2 = 'new const'; // не работает ниже версии 5.3
+// $int = 123;
+// var_dump($int);
+
+// $float = 1.2;
+// var_dump($float);
+
+// $var = 10;
+// $string = 'this is string $var'; // this is string $var
+// $string2 = "this is string $var"; // this is string 10
+// $string3 = "this is string {$var}s"; // this is string 10s
+// $string4 = 'this is \'string \' '. $var; // this is 'string' 10
+// $string5 = "this is \"string\" ". $var ; // this is "string" 10
+
+
+// (HEREDOC)
+//после HERE должен быть сразу перевод строки
+$str = <<<HERE
+This is "string" $var
+HERE; // тут обязательно должно быть что-то после, например, закрывающий символ рнр или какой-то код
+
+// (NOWDOC)
+// отличие от HEREDOC в том что ключеове слово берется в одинарные кавычки
+$str = <<<'HERE'
+This is "string" $var
+HERE;
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Урок 2</title>
-</head>
-<body>
-    <!-- константы в кавычках не обрабатываются -->
-    <h1><?php echo PAGE; ?></h1>
-    <p><?php echo $winnie_pooh; ?></p>
-    <p><?php echo $Var; ?></p> 
-    <p><?php echo PAGE2; ?></p> 
-</body>
-</html>
