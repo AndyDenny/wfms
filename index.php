@@ -18,29 +18,32 @@ error_reporting(-1);
 "--$a" - префиксный декремент
 "$a--" - постфискный декремент
 "." - конкатенация
+комбинированные операторы
 */
 
-// echo -5 - 3 * 5; // -20
-// echo 5 / 3; // 1.6666666666667
-// echo 20 % 3; // 2
-// echo 2 ** 3; // 8
+// $a = 5;
+// $a = $a + 1; // $a++
+// var_dump($a); // 6
+
+// $str1 = 'Hello';
+// $str2 = 'World';
+// $str = $str1 . $str2 ; 
+// echo $str;
 
 // $a = 5;
-// $b = $a; // 5
-// var_dump($a); // 5
-// $a = 7;
-// var_dump($a); // 7
-// var_dump($b); // 5
+// $a = $a + 2;
+// $a +=2;
+// $a *=2;
+// $str1 = 'Hello';
+// $str1 .= ' world';
 
-// $a = 5;
-// $b = &$a; // 5
-// var_dump($a); // 5
-// $a = 7;
-// var_dump($a); // 7
-// var_dump($b); // 7
+// NULL
+// $var = '2';
+// unset($var);
+// var_dump($var); // null
+// $var = NULL;
+// $var++;
+// var_dump($var); // 1
 
-// echo 5 + "3"; // 8
-// echo 5 + "3 test"; // 8
-// echo 5 + "t43est"; // 5
 
 ?>
