@@ -1,48 +1,46 @@
 <?php
 error_reporting(-1);
 
- // $this = '123';// так нельзя именовать свою переменную
-
-
-// типы данных
- /*
-boolean - True | FALSE
-integer - 123
-float - 1.2
-string - 'this is string'
-(HEREDOC) - аналог двойных кавычек
-(NOWDOC) - аналог одинарных кавычек
+/*
+операторы
+"+" - сложение
+"-" - вычитание
+"*" - умножение
+"/" - деление
+"-$a" - отрицание
+"$a % $b" - деление по модулю(остаток от деления) 
+"$a ** $b" - возведение в степень
+(имеют приоритет, так же как и в математике, который можно изменить добавив скобки)
+"=" - присваивание 
+"&" - присваивание по  ссылке
+"++$a" - префиксный инкремент 
+"$a++" - постфискный инкремент
+"--$a" - префиксный декремент
+"$a--" - постфискный декремент
+"." - конкатенация
 */
 
-// $bool = true; // выведет - 1
-// $bool2 = false; 
-// echo $bool2;  // выведет пустую строку
-// var_dump($bool2);
+// echo -5 - 3 * 5; // -20
+// echo 5 / 3; // 1.6666666666667
+// echo 20 % 3; // 2
+// echo 2 ** 3; // 8
 
-// $int = 123;
-// var_dump($int);
+// $a = 5;
+// $b = $a; // 5
+// var_dump($a); // 5
+// $a = 7;
+// var_dump($a); // 7
+// var_dump($b); // 5
 
-// $float = 1.2;
-// var_dump($float);
+// $a = 5;
+// $b = &$a; // 5
+// var_dump($a); // 5
+// $a = 7;
+// var_dump($a); // 7
+// var_dump($b); // 7
 
-// $var = 10;
-// $string = 'this is string $var'; // this is string $var
-// $string2 = "this is string $var"; // this is string 10
-// $string3 = "this is string {$var}s"; // this is string 10s
-// $string4 = 'this is \'string \' '. $var; // this is 'string' 10
-// $string5 = "this is \"string\" ". $var ; // this is "string" 10
-
-
-// (HEREDOC)
-//после HERE должен быть сразу перевод строки
-$str = <<<HERE
-This is "string" $var
-HERE; // тут обязательно должно быть что-то после, например, закрывающий символ рнр или какой-то код
-
-// (NOWDOC)
-// отличие от HEREDOC в том что ключеове слово берется в одинарные кавычки
-$str = <<<'HERE'
-This is "string" $var
-HERE;
+// echo 5 + "3"; // 8
+// echo 5 + "3 test"; // 8
+// echo 5 + "t43est"; // 5
 
 ?>
