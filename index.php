@@ -1,67 +1,51 @@
 <?php
 error_reporting(-1);
-?>
-    <!doctype html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
-    </head>
-    <body>
-<?php
 
-//$i = 1;
-//while($i <= 10){
-//    echo $i;
-//    $i++;
-//}
-//echo "<table border='1'>";
-//$i = 1;
-//while($i <= 10){
-//    echo "<tr>";
-//    $n = 1;
-//    while($n <= 3){
-//        echo "<td>Row - {$i} Col - {$n}</td>";
-//        $n++;
-//    }
-//    echo "</tr>";
-//    $i++;
+//$arr =  array('Ivanov'. 'Petrov', 'Sidorov' );
 //
-//}
-//echo "</table>";
+//echo "<pre>";
+//print_r($arr);
+//echo "</pre>";
 
-//$year = 1900;
-//echo "<select>";
-//while ($year < 2024){
-//    echo "<option>$year</option>";
-//    $year++;
-//}
-//echo "</select>";
-//$i = 1;
-//do{
-//    echo $i++ . '<br>';
-//}while($i <= 10);
+//$arr2 = [1,2,['banana','orange','apple'],4,'cat',6,7,8,9,10,];
+//echo "<pre>";
+//var_dump($arr2);
+//echo "</pre>";
+
+//echo $arr2[2][2];
+
+//$arr3 =  [
+//        5 => 'Ivanov',
+//        'Petrov',
+//        25 => 'Sidorov'
+//];
+//
+//echo "<pre>";
+//var_dump($arr3);
+//echo "</pre>";
+//echo $arr3[6];
+
+//$goods = [
+//  [
+//      'title' => 'Nokia',
+//      'price' => 100,
+//      'description' => 'Description'
+//  ],
+//  [
+//      'title' => 'iPad',
+//      'price' => 200,
+//      'description' => 'Description'
+//  ]
+//];
+//echo '<pre>';
+//print_r($goods);
+//echo '</pre>';
+//echo $goods[0]['title'] . ' - ' . $goods[0]['price'];
+//echo '<br>';
+//echo $goods[1]['title'] . ' - ' . $goods[1]['price'];
 // HomeWork
-//echo "<table border='1'>";
-//$i = 1;
-//while ($i < 10) {
-//    echo "<tr>";
-//    $j = 1;
-//    while ($j < 10) {
-//        $k = $i * $j;
-//        echo "<td>{$i} x {$j} = {$k}</td>";
-//        $j++;
-//    }
-//    echo "</tr>";
+//$i = 0;
+//while ($i < count($goods)) {
+//    echo $goods[$i]['title'] . ' - ' . $goods[$i]['price'] . ' | ' . $goods[$i]['description'] . '<br>';
 //    $i++;
 //}
-//echo "</table>";
-
-
-?>
-    </body>
-    </html>
-
