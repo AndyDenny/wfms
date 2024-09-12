@@ -1,37 +1,55 @@
 <?php
 error_reporting(-1);
+//
+//$arr =  array('Ivanov', 'Petrov', 'Sidorov' );
+//
+//$arr[] = 'Pupkin';
+//$arr[] = 'Doe';
+//print_r($arr);
 
-//$arr =  array('Ivanov'. 'Petrov', 'Sidorov' );
+//$i = 1;
+//while ($i <= 10) {
+//    echo $i;
+//    $i++;
+//}
+//
+//for ($i = 0; $i < count($arr); $i++) {
+//    echo $arr[$i] . "<br>";
+//}
 
-//$goods = [
-//  [
-//      'title' => 'Nokia',
-//      'price' => 100,
-//      'description' => 'Description'
-//  ],
-//  [
-//      'title' => 'iPad',
-//      'price' => 200,
-//      'description' => 'Description'
-//  ]
-//];
 
-/*
- * count() - количество элементов массива
- * array_diff() - выводит эленты первого массива, отсутствующие во втором
- * array_intersec() - выводит элементы, имеющиеся в переданных массивах
- * array_key_exist() - проверяет на наличие ключей в массиве
- * array_keys() - возращаяет ключи массива
- * array_values() - возвращает значения массива
- * array_merge() - объединяет массивы в один, совпадающие строковые ключи перезаписываются
- * array_rand() - выбирает случайный ключ(и) массива
- * array_reverse() - переворачивает массив наоброт, с сохранением или без ключей
- * compact() - собирает массив из названий переменных
- * extract() - создает из массива переменные, ключи массива являются именами переменных
- * arsort() - сортирует массив в обратном алфавитном порядке, с сохранением ключей
- * asort() - сортирует массив в прямом алфавитном порядке, с сохранением ключей
- * rsort() - сортирует массив в обратном алфавитном порядке, ключи перезаписываются на числовые
- * sort() - сортирует массив в прямом алфавитном порядке, ключи перезаписываются на числовые
- *
- *
- * */
+
+// HomeWork
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<?php
+
+echo '<table border="1">';
+for ($i = 1; $i < 10; $i++) {
+    echo '<tr>';
+    for ($j = 1; $j < 10; $j++) {
+        echo "<td>{$i} x {$j} = " . $i*$j . "</td>";
+    }
+    echo '</tr>';
+}
+echo '</table>';
+echo '<br>';
+echo '<select>';
+for ($i = 1900; $i <= 2024; $i++) {
+    echo "<option>$i</option>";
+}
+echo '</select>';
+?>
+
+</body>
+</html>
+
