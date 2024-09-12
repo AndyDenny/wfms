@@ -1,75 +1,28 @@
 <?php
 error_reporting(-1);
 
-$arr =  array('Ivanov', 'Petrov', 'Sidorov' );
-
-//$names = [
-//    'Ivan' => 'Ivanov',
-//    'Petr' => 'Petrov',
-//    'Sidor' => 'Sidorov'
-//];
-//
-//$var = 1;
-//
-//if ($var == 1){
-//    echo 'Variable 1';
-//}elseif ($var == 2){
-//    echo 'Variable 2';
-//}elseif ($var == 3){
-//    echo 'Variable 3';
-//}else{
-//    echo 'Something else...';
-//}
-//
-//switch ($var){
-//    case 1:
-//        echo 'Variable 1';
-//        break;
-//    case 2:
-//        echo 'Variable 2';
-//        break;
-//    case 3:
-//        echo 'Variable 3';
-//        break;
-//    default:
-//        echo 'Something else...';
-//
-//}
-
-$bool = true;
-$str1 = 1;
-$str2 = 2;
-$str3 = 3;
-//if ($bool){
-//    echo '<table class="table" border="1">
-//            <tr>
-//                <td>' . $str1 . '</td>
-//                <td>' . $str2 . '</td>
-//                <td>' . $str3 . '</td>
-//            </tr>
-//        </table>';
-//}
-?>
-<?php if($bool):?>
-    <table class="table" border="1">
-        <tr>
-            <td><?php echo $str1; ?></td>
-            <td><?php echo $str2; ?></td>
-            <td><?php echo $str3; ?></td>
-        </tr>
-    </table>
-<?php endif;?>
-
+ ?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<p>Lorem ipsum dolor sit amet.</p>
 <?php
-$names = [
-    'Ivan' => 'Ivanov',
-    'Petr' => 'Petrov',
-    'Sidor' => 'Sidorov'
-];
-?>
-<?php foreach($names as $name => $surname):?>
-    <p><?php echo "Name: $name, Surname: $surname"?></p>
-<?php endforeach;?>
 
+include 'inc.php';          //  Если путь ошибочен, то прилетит Варнинг и код отработрает дальше
+include_once 'inc.php';     //  Подключается только один раз
+require 'inc.php';          //  Если путь ошибочен, то прилетит ФаталЭррор и код НЕ отработрает дальше.
+require_once 'inc.php';     //  Повторное подключение игнорируется
+
+?>
+<p>Lorem ipsum dolor sit amet.</p>
+</body>
+</html>
 
 
