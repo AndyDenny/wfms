@@ -1,55 +1,50 @@
 <?php
 error_reporting(-1);
-//
-//$arr =  array('Ivanov', 'Petrov', 'Sidorov' );
-//
-//$arr[] = 'Pupkin';
-//$arr[] = 'Doe';
-//print_r($arr);
 
-//$i = 1;
-//while ($i <= 10) {
-//    echo $i;
-//    $i++;
+$arr =  array('Ivanov', 'Petrov', 'Sidorov' );
+
+//$names = [
+//    'Ivan' => 'Ivanov',
+//    'Petr' => 'Petrov',
+//    'Sidor' => 'Sidorov'
+//];
+//foreach($names as $name => $surname){
+//    echo "Name: $name, Surname: $surname <br>";
 //}
 //
-//for ($i = 0; $i < count($arr); $i++) {
-//    echo $arr[$i] . "<br>";
+//foreach($arr as $key => $value){
+//    echo "Key: $key, Name: $value <br>";
 //}
+//
+//$a = 2;
+//if ( $a > 3 || $a < 7 ) {
+//    echo 'OK';
+//}else{
+//    echo 'NO';
+//}
+//for ($i = 0; $i < 30; $i++) {
+//    if ( $i >= 10 && $i <= 20) continue;
+//    echo $i . '<br>';
+//}
+
 
 
 
 // HomeWork
-?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-<?php
-
-echo '<table border="1">';
-for ($i = 1; $i < 10; $i++) {
-    echo '<tr>';
-    for ($j = 1; $j < 10; $j++) {
-        echo "<td>{$i} x {$j} = " . $i*$j . "</td>";
-    }
-    echo '</tr>';
+$names = [
+    'Ivan' => 'Ivanov',
+    'Petr' => 'Petrov',
+    'Sidor' => 'Sidorov'
+];
+foreach($names as $name => $surname){
+    if ($name == 'Petr') continue;
+    echo "Name: $name, Surname: $surname <br>";
 }
-echo '</table>';
-echo '<br>';
-echo '<select>';
-for ($i = 1900; $i <= 2024; $i++) {
-    echo "<option>$i</option>";
+echo "<hr>";
+foreach($names as $name => $surname){
+    echo "Name: $name, Surname: $surname <br>";
+    if ($name == 'Ivan') break;
 }
-echo '</select>';
-?>
 
-</body>
-</html>
+?>
 
