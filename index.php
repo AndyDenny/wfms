@@ -1,27 +1,18 @@
 <?php
 error_reporting(-1);
 
-//strpos() - возвращает позицию искомого символа в строке
-//mb_strpos()
-//$str = 'Привет мир!';
-//echo mb_strpos($str , 'и'); // 2
-//var_dump(mb_strpos($str , 'y')); // false
-//echo mb_strpos($str , 'и',3); // 9
+//echo  date(''); //  вывод даты
 
-// переводят строки в верхний и нижний регистр
-//$str = 'привет мир!';
-//echo mb_strtoupper($str); // ПРИВЕТ МИР!
-//$str = 'ПРИВЕТ МИР!';
-//echo mb_strtolower($str); // привет мир!
+// Узнать часовой пояс сервера
+//echo date_default_timezone_get(); // Europe/Moskow
+//date_default_timezone_set('Europe/Paris'); // Устанавливает чаосвой пояс сервера
+//echo time(); // 1726229425
+//echo date("Y/m/d", time() + 60 * 60 * 24 ); // Плюс сутки, с текущего момента
+//phpinfo(); // Список текущих настроек пыхи
 
-// mb_substr() - возвращает подстроку, с указанного индекса
-//$str = 'Привет мир!';
-//echo mb_substr($str, 0, 3); //  При
-//echo mb_substr($str, 4, 7); //  ет мир!
-//echo mb_substr($str, -4, 3); //  мир
+//var_dump(getdate()); //["seconds"]=> int(27) ["minutes"]=> int(18) ["hours"]=> int(15) ["mday"]=> int(13) ["wday"]=> int(5) ["mon"]=> int(9) ["year"]=> int(2024) ["yday"]=> int(256) ["weekday"]=> string(6) "Friday" ["month"]=> string(9) "September" [0]=> int(1726229907)
+//echo strtotime('now'); // 1726229990
+//echo date("Y/m/d", strtotime('+ 1 day'));
 
-//htmlspecialchars() - преобразует HTML-символы в HTML-мнемоники
-//echo htmlspecialchars('Привет мир!<br>'); // Привет мир!&lt;br&gt;
-
-//htmlspecialchars_decode() - преобразует HTML-мнемоники в HTML-символы
-//echo htmlspecialchars_decode('Привет мир!&lt;br&gt;'); // Привет мир!
+//$t = mktime(date('H'),date('i'),date('s'),date('m'),date('d'),date('Y') + 1 ); 
+//echo date('H:i:s Y', $t); //15:40:32 2025
