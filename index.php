@@ -1,6 +1,29 @@
 <?php
 error_reporting(-1);
 
+
+    echo "<pre>";
+    var_dump($_SERVER);
+    echo "</pre>";
+
+if(!empty($_POST)){
+    echo "<pre>";
+    var_dump($_POST);
+    echo "</pre>";
+}
+if(!empty($_GET)){
+    echo "<pre>";
+    var_dump($_GET);
+    echo "</pre>";
+}
+if(!empty($_FILES)){
+    echo "<pre>";
+    var_dump($_FILES);
+    echo "</pre>";
+    move_uploaded_file($_FILES["file"]["tmp_name"], 'upl/' . $_FILES["file"]["name"]);
+}
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -13,31 +36,22 @@ error_reporting(-1);
 </head>
 <body>
 
-<form action="action.php">
+<form  method="post" action="" enctype="multipart/form-data">
     <p>
         <input type="text" name="name">
     </p>
     <p>
-        <textarea name="text" id="" cols="30" rows="10"></textarea>
+        <textarea name="text"></textarea>
     </p>
     <p>
-        <select name="lang[]" id="" multiple>
-            <option value="rus">Russian</option>
-            <option value="eng">English</option>
-            <option value="ger">Germany</option>
-        </select>
-    </p>
-    <p>
-        <input type="checkbox" name="remember">
+        <input type="file" name="file">
     </p>
     <p>
         <button type="submit" name="send" value="test">Send</button>
     </p>
 </form>
 <hr>
-<p>Введенное имя: <?php if(!empty($_POST['name'])) echo $_POST['name']; else echo 'форма не отправлена' ?></p>
-<p>Введенный текст: <?php echo !empty($_POST['text']) ? nl2br($_POST['text']) : 'форма не отправлена' ?></p>
- 
+
 </body>
 </html>
 
