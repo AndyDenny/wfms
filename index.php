@@ -1,18 +1,43 @@
 <?php
 error_reporting(-1);
 
-//echo  date(''); //  вывод даты
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
 
-// Узнать часовой пояс сервера
-//echo date_default_timezone_get(); // Europe/Moskow
-//date_default_timezone_set('Europe/Paris'); // Устанавливает чаосвой пояс сервера
-//echo time(); // 1726229425
-//echo date("Y/m/d", time() + 60 * 60 * 24 ); // Плюс сутки, с текущего момента
-//phpinfo(); // Список текущих настроек пыхи
+<form action="action.php">
+    <p>
+        <input type="text" name="name">
+    </p>
+    <p>
+        <textarea name="text" id="" cols="30" rows="10"></textarea>
+    </p>
+    <p>
+        <select name="lang[]" id="" multiple>
+            <option value="rus">Russian</option>
+            <option value="eng">English</option>
+            <option value="ger">Germany</option>
+        </select>
+    </p>
+    <p>
+        <input type="checkbox" name="remember">
+    </p>
+    <p>
+        <button type="submit" name="send" value="test">Send</button>
+    </p>
+</form>
+<hr>
+<p>Введенное имя: <?php if(!empty($_POST['name'])) echo $_POST['name']; else echo 'форма не отправлена' ?></p>
+<p>Введенный текст: <?php echo !empty($_POST['text']) ? nl2br($_POST['text']) : 'форма не отправлена' ?></p>
+ 
+</body>
+</html>
 
-//var_dump(getdate()); //["seconds"]=> int(27) ["minutes"]=> int(18) ["hours"]=> int(15) ["mday"]=> int(13) ["wday"]=> int(5) ["mon"]=> int(9) ["year"]=> int(2024) ["yday"]=> int(256) ["weekday"]=> string(6) "Friday" ["month"]=> string(9) "September" [0]=> int(1726229907)
-//echo strtotime('now'); // 1726229990
-//echo date("Y/m/d", strtotime('+ 1 day'));
-
-//$t = mktime(date('H'),date('i'),date('s'),date('m'),date('d'),date('Y') + 1 ); 
-//echo date('H:i:s Y', $t); //15:40:32 2025
