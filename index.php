@@ -1,53 +1,13 @@
 <?php
-session_start();
 
+//setcookie("test", "testvalue", time() + 3600); // кука устанавливается на час
+//echo $_COOKIE["test"];
+//setcookie("test", "", time() - 3600); // кука удаляется
 
-if (!empty($_POST['login'])){
-    if ($_POST['login'] == 'admin'){
-        $_SESSION['admin'] = 'admin';
-        $_SESSION['message'] = 'Authorised as Admin';
-        header('Location: index.php');
-        die();
-    }
-}
-//$_SESSION['name'] = 'Andy';
+isset($_COOKIE['counter']) ? setcookie('counter', ++$_COOKIE['counter']) : setcookie('counter', 1);
+// префиксный инкремент используется для того чтобы переменная прибавилась, а потом уже отдалась в значение массива
+// тогда счетчик будет прибавляться, вместо того чтобы оставаться на месте
 
-//echo $_SESSION['name'];
+echo isset($_COOKIE['counter']) ? $_COOKIE['counter'] : 1;
 
-//unset($_SESSION['name']); // удаление переменной
-//session_unset(); // удаление переменных
-//session_destroy(); // удаление файла сессии
-
-?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-<a href="secret.php">secret</a>
-<!---->
-<?php
-if (isset($_SESSION['message'])){
-    echo $_SESSION['message'];
-    unset($_SESSION['message']);
-}
-?>
-<!---->
-<form  method="post" action="" enctype="multipart/form-data">
-    <p>
-        <input type="text" name="login">
-    </p>
-    <p>
-        <button type="submit" name="send" value="test">Login</button>
-    </p>
-</form>
-<hr>
-
-</body>
-</html>
-
+?> 
