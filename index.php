@@ -1,28 +1,22 @@
 <?php
-error_reporting(-1);
+session_start();
 
 
-    echo "<pre>";
-    var_dump($_SERVER);
-    echo "</pre>";
-
-if(!empty($_POST)){
-    echo "<pre>";
-    var_dump($_POST);
-    echo "</pre>";
+if (!empty($_POST['login'])){
+    if ($_POST['login'] == 'admin'){
+        $_SESSION['admin'] = 'admin';
+        $_SESSION['message'] = 'Authorised as Admin';
+        header('Location: index.php');
+        die();
+    }
 }
-if(!empty($_GET)){
-    echo "<pre>";
-    var_dump($_GET);
-    echo "</pre>";
-}
-if(!empty($_FILES)){
-    echo "<pre>";
-    var_dump($_FILES);
-    echo "</pre>";
-    move_uploaded_file($_FILES["file"]["tmp_name"], 'upl/' . $_FILES["file"]["name"]);
-}
+//$_SESSION['name'] = 'Andy';
 
+//echo $_SESSION['name'];
+
+//unset($_SESSION['name']); // удаление переменной
+//session_unset(); // удаление переменных
+//session_destroy(); // удаление файла сессии
 
 ?>
 <!doctype html>
@@ -35,19 +29,21 @@ if(!empty($_FILES)){
     <title>Document</title>
 </head>
 <body>
-
+<a href="secret.php">secret</a>
+<!---->
+<?php
+if (isset($_SESSION['message'])){
+    echo $_SESSION['message'];
+    unset($_SESSION['message']);
+}
+?>
+<!---->
 <form  method="post" action="" enctype="multipart/form-data">
     <p>
-        <input type="text" name="name">
+        <input type="text" name="login">
     </p>
     <p>
-        <textarea name="text"></textarea>
-    </p>
-    <p>
-        <input type="file" name="file">
-    </p>
-    <p>
-        <button type="submit" name="send" value="test">Send</button>
+        <button type="submit" name="send" value="test">Login</button>
     </p>
 </form>
 <hr>
