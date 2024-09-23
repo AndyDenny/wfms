@@ -1,70 +1,31 @@
 <?php
 error_reporting(-1);
 
+$name_server = 'localhost';
+$name_db = 'gb';
+$name_user = 'root';
+$password = '';
 
-//copy('test.txt', 'folder/test.txt'); // скопировать файл по указанному пути - папки должны уже существовать
-//if (file_exists('folder/test.txt')) echo 'File already exists.';
 
-//$file = file_get_contents('test.txt'); // читаем файл в переменную
-//$file2 = file_get_contents('https://php.net/'); // читаем документ в переменную
-//$file3 = file_get_contents('test.txt');
-//echo nl2br($file3); // нормальнй многострочный вывод
+// @ - предваряя вызов функции этим знаком - подавляются ошибки, возвращаемые функией
+$db = @mysqli_connect($name_server,$name_user, $password, $name_db);
+// echo mysqli_connect_error(); // возвращает строку с последней ошибкой, случившейся при подключении к БД
+if(!$db) die(mysqli_connect_error()); // при ошибке подключения к базе - выкидываем ошибку и останавливаем дальнейшее исполнение
+// аналогичная ситуация, только текст ошибки пишется свой
+// $db = @mysqli_connect($name_server,'root123', $password, $name_db) or die('ошибка соединения с БД');
+// mysqli_set_charset($db, 'utf8') or die('Не корректная кодировка'); // UTF8 - пишется без тире, так же как и в списке кодировок БД
 
-//$file = file_get_contents('https://php.net/');
-//file_put_contents('test.txt', $file, FILE_APPEND); // записываем или дописываем иформацию в файл
-//$ext_file = file('test.txt',FILE_SKIP_EMPTY_LINES | FILE_IGNORE_NEW_LINES);
-//echo "<pre>";
-//print_r($ext_file);
-//echo "</pre>";
+// $insert = "INSERT INTO `guestbook` (`name`, `text`) VALUES ('Maxim','Lorem ipsum dolor sit amet.')"; // запрос к базе пишем в отдельную переменную
+// $res_insert =  mysqli_query($db,$insert); // и отправляем запрос в базу, к которой подключились ранее
+// $err = mysqli_error($db); // ф-ция для показа ошибки, при запросе в БД
+// echo $err;  
 
-//echo is_dir('folder') ? 'is directory' : 'is not directory'; // is directory
-//echo is_dir('./') ? 'is directory' : 'is not directory'; // is directory
-//echo is_dir('../') ? 'is directory' : 'is not directory'; // is directory
-//echo is_dir('test.txt') ? 'is directory' : 'is not directory'; // is not directory
-//echo is_file('test.txt') ? ' is file' : ' is not file'; // is file
-//echo is_file('folder') ? ' is file' : ' is not file'; // is not file
+// $update = "UPDATE guestbook SET text = CONCAT(text,'|||') WHERE id > 4";
+// $res_update = mysqli_query($db,$update) or die(mysqli_error($db)); // и можно комбинировать ф-ции в одну строку
 
-//rename('test.txt','folder/test2.txt'); // переименовывает\перемещает файл или папку
-//mkdir('new_folder'); // создает директорию
-//mkdir('1/2/3', 0777, true); // создает вложенные директории
-//rmdir('new_folder'); // удаляет директорию
-//touch('test.txt', time() - 3600); // модификация времени создания файла
-//unlink('test.txt'); // удаляет файл
-//HOMEWORK
-/*
-Ivan
-message text
-12.12.2005
-----------
-*/
-if (isset($_POST['send']) == 'Send'){
-    $name = $_POST['name'];
-    $message = $_POST['message'];
-    $date = date("d.m.Y");
+// $delete = "DELETE FROM guestbook WHERE id = 6";
+// mysqli_query($db,$delete) or die(mysqli_error($db));
+// echo mysqli_affected_rows($db); // возвращает кол-во измененных строк( или 0 ) | или (-1) ошибку 
 
-    $string = $name . "\n" . $message . "\n" . $date . "\n------\n";
-
-    file_put_contents('guestbook.txt', $string, FILE_APPEND);
-    header('Location: index.php');
-
-}
-if ( file_exists('guestbook.txt') ) echo nl2br(file_get_contents('guestbook.txt'));
-
-?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-<form action="" method="post">
-    <input type="text" name="name">
-    <textarea name="message"></textarea>
-    <button name="send">Send</button>
-</form>
-</body>
-</html>
+$res = mysqli_query($db, "SELECT * FROM guestbook");
+var_dump($res);
