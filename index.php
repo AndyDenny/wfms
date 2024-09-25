@@ -1,2 +1,5 @@
 <?php
-//Start OOP
+
+require_once 'classes/FirstClass.php';
+
+new FirstClass();
