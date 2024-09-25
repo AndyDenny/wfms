@@ -6,15 +6,8 @@ function debug($data){
 }
 require_once 'classes/Car.php';
 
-$car1 = new Car();
-$car1->color = 'черный';
-$car1->brand = 'volvo';
-$car1->speed = 200;
-
-$car2 = new Car();
-$car2->color = 'белый';
-$car2->brand = 'BMW';
-$car2->speed = 150;
+$car1 = new Car('черный',4,200,'volvo');
+$car2 = new Car('белый',4,210,'BMW');
 
 echo $car1->getCarInfo();
 echo $car2->getCarInfo();
