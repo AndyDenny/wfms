@@ -4,12 +4,13 @@ function debug($data){
     var_dump($data);
     echo "</pre>";
 }
-require_once 'classes/Car.php';
+require_once 'classes/File.php';
 
-$car1 = new Car('черный',4,200,'volvo');
-$car2 = new Car('белый',4,210,'BMW');
-
-echo $car1->getCarInfo();
-echo $car2->getCarInfo();
+$file = new File(__DIR__ . '/text.txt');
+$file->write('String 1');
+$file->write('String 2');
+$file->write('String 3');
+$file->write('String 4');
+$file->write('String 5');
 
 
