@@ -4,13 +4,20 @@ function debug($data){
     var_dump($data);
     echo "</pre>";
 }
-require_once 'classes/File.php';
+require_once 'classes/Car.php';
+echo Car::getCount();
+echo '<br>';
+$car1 = new Car('черный',4,200,'volvo');
+echo Car::getCount();
+echo '<br>';
+$car2 = new Car('белый',4,210,'BMW');
+echo Car::getCount();
+echo '<br>';
 
-$file = new File(__DIR__ . '/text.txt');
-$file->write('String 1');
-$file->write('String 2');
-$file->write('String 3');
-$file->write('String 4');
-$file->write('String 5');
+echo $car1->getCarInfo();
+ echo $car1->getPrototypeCarInfo();
+ echo Car::TEST_CAR_SPEED;
+echo $car2->getCarInfo();
+ 
 
 
