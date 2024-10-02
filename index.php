@@ -4,20 +4,15 @@ function debug($data){
     var_dump($data);
     echo "</pre>";
 }
-require_once 'classes/Car.php';
-echo Car::getCount();
-echo '<br>';
-$car1 = new Car('черный',4,200,'volvo');
-echo Car::getCount();
-echo '<br>';
-$car2 = new Car('белый',4,210,'BMW');
-echo Car::getCount();
-echo '<br>';
 
-echo $car1->getCarInfo();
- echo $car1->getPrototypeCarInfo();
- echo Car::TEST_CAR_SPEED;
-echo $car2->getCarInfo();
+require_once 'classes/Product.php';
+
+$book = new Product('Три мушкетера', 120, null, 378);
+$notebook = new Product('Asus',4598, 'Intel');
+
+// debug($book);
+// debug($notebook);
  
-
+echo $book->getProduct('book');
+echo $notebook->getProduct();
 
