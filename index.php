@@ -7,6 +7,7 @@ function debug($data){
 }
 
 require_once 'classes/Product.php';
+require_once 'classes/I3D.php';
 // require_once 'classes/NotebookProduct.php';
 require_once 'classes/BookProduct.php';
 
@@ -18,4 +19,7 @@ debug($book);
  
 echo $book->getProduct();
 // echo $notebook->getProduct();
+$book->test();
+
+// $book->addProduct('test',890,150);
 

@@ -1,10 +1,12 @@
 <?
-class Product{
+abstract class Product{
 
     private $name;
     protected $price;
  
     private $discount = 0;
+
+    const TEST = 10;
 
     public function __construct($name, $price){
         $this->name = $name;
@@ -33,5 +35,6 @@ class Product{
             Цена: {$this->price}<br/>
             Цена со скидкой: {$this->getPrice()}<br/>";
     }
-
+    
+    abstract protected function addProduct($name, $price);
 }
