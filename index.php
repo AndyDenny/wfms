@@ -1,16 +1,28 @@
 <?php
 
-function debug($data){
+use \classes\interfaces\IGadget;
+use \classes\BookProduct;
+use \classes\NotebookProduct;
+
+function debug($data){  
     echo "<pre>";
     var_dump($data);
     echo "</pre>";
 }
 
-require_once 'classes/Product.php';
-require_once 'classes/I3D.php';
-require_once 'classes/IGadget.php';
-require_once 'classes/NotebookProduct.php';
-require_once 'classes/BookProduct.php';
+/*
+Заменяем кучу инклюдов на ф-цию spl_autoload_register()
+*/ 
+
+function autoloader($className){
+    $className = str_replace('\\','/',$className); // подменяем слэш, для linux систем
+    $file = __DIR__ . "/{$className}.php"; // путь берется из namespace указанного в файле
+    if(file_exists($file)){
+        require_once $file;
+    }
+}
+spl_autoload_register('autoloader'); 
+
 
 function offerCase(iGadget $product){ // Предваряя передачу объекта -
     // указывается его тип(в данном случае принадлежность к интерфейсу),
@@ -37,27 +49,3 @@ debug($book);
 // debug($notebook);
 
 offerCase($notebook);
-
-// class A{};
-// class B extends A{};
-// class C{};
-
-// $a = new A();
-// $b = new B();
-// $c = new C();
-
-// // instanceof - оператор проверки типа обьекта.
-// // Принадлежит объект тому или иному классу/интерфейсу. Возвращает true\false
-
-// var_dump($a instanceof A); // true
-// var_dump($b instanceof B); // true
-// var_dump($c instanceof C); // true
-// // тут все объекты своих классов
-// var_dump($c instanceof A); // false
-// // потому что "$с" не объект класса "А"
-// var_dump($b instanceof A); // true
-// // потому что "$b" объект класса "B",
-// // родителем которого является класс "А"
-
-
-
