@@ -1,6 +1,6 @@
 <?php
 
-namespace classes;
+namespace wfm;
 abstract class Product{
 
     private $name;

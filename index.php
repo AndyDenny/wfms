@@ -1,8 +1,8 @@
 <?php
 
-use \classes\interfaces\IGadget;
-use \classes\BookProduct;
-use \classes\NotebookProduct;
+use \wfm\interfaces\IGadget;
+use \app\{BookProduct, NotebookProduct};
+
 
 function debug($data){  
     echo "<pre>";
@@ -14,14 +14,16 @@ function debug($data){
 Заменяем кучу инклюдов на ф-цию spl_autoload_register()
 */ 
 
-function autoloader($className){
-    $className = str_replace('\\','/',$className); // подменяем слэш, для linux систем
-    $file = __DIR__ . "/{$className}.php"; // путь берется из namespace указанного в файле
-    if(file_exists($file)){
-        require_once $file;
-    }
-}
-spl_autoload_register('autoloader'); 
+// function autoloader($className){
+//     $className = str_replace('\\','/',$className); // подменяем слэш, для linux систем
+//     $file = __DIR__ . "/{$className}.php"; // путь берется из namespace указанного в файле
+//     if(file_exists($file)){
+//         require_once $file;
+//     }
+// }
+// spl_autoload_register('autoloader'); 
+
+require_once __DIR__ . '/vendor/autoload.php';
 
 
 function offerCase(iGadget $product){ // Предваряя передачу объекта -

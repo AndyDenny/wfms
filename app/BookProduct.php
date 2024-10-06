@@ -1,7 +1,8 @@
 <?php
-namespace classes;
+namespace app;
 
-use classes\interfaces\I3D;
+use wfm\Product;
+use wfm\interfaces\I3D;
 class BookProduct extends Product implements I3D{
 
 // extends - указывает родительский класс
