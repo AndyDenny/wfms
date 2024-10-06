@@ -24,7 +24,7 @@ abstract class Product{
     }
     // Осуществляется доступ для изменения св-ва, доступного только изнутри класса
 
-    public function getName(){
+    public function getName():string{
         return $this->name;
     }
 

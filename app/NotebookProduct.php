@@ -21,7 +21,7 @@ class NotebookProduct extends Product implements IGadget{
         $this->cpu = $cpu;
     }
 
-    public function getCpu(){
+    public function getCpu(): string{
         return $this->cpu;
     }
 
