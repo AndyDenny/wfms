@@ -1,8 +1,8 @@
 <?php
 
 use \wfm\interfaces\IGadget;
-use \app\{BookProduct, NotebookProduct};
-
+use \app\{BookProduct, NotebookProduct,A,B};
+ 
 
 function debug($data){  
     echo "<pre>";
@@ -39,5 +39,15 @@ $notebook = new NotebookProduct('Asus',4598, 'Intel');
 
 // debug($book);
 // offerCase($notebook);
-
-echo $book;
+ 
+$a1 = A::getInstance();
+$a2 = A::getInstance();
+var_dump($a1); // object(App\A)#5 (0) { }
+var_dump($a2); // object(App\A)#5 (0) { }
+// В классе А, с помощью трейта(для переиспользования в классе В),
+// реализован паттерн синглтон. Первая переменная - создает инстанс класса,
+// вторая - уже его возвращает.
+$b1 = B::getInstance();
+$b2 = B::getInstance();
+var_dump($b1); // object(App\B)#6 (0) { }
+var_dump($b2); // object(App\B)#6 (0) { }
