@@ -89,7 +89,6 @@ class Router
         return $string;
     }
 
-
     /**
      * @return string
      * in format camelCase
