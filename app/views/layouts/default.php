@@ -10,6 +10,6 @@
 
 
 <h1>Default page layout</h1>
-
+<?=$content;?>
 </body>
 </html>
