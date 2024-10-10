@@ -19,7 +19,7 @@ class Registry
     /**
      * @return array
      */
-    public function getProperties($name)
+    public function getProperty($name)
     {
         if(isset(self::$properties[$name])){
             return self::$properties[$name];
@@ -27,7 +27,7 @@ class Registry
         return null;
     }
 
-    public function getPropertiers()
+    public function getProperties()
     {
         return self::$properties;
     }

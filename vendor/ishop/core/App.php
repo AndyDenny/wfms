@@ -18,6 +18,7 @@ class App
     }
 
 
+
     protected function getParams()
     {
         $params = require_once CONF . '/params.php';
