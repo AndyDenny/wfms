@@ -12,9 +12,11 @@
 
 <h1>Default page layout</h1>
 
+
+<?debug($names);?>
 <?=$content;?>
 <?
-$logs = R::getDatabaseAdapter()
+$logs = \R::getDatabaseAdapter()
     ->getDatabase()
     ->getLogger();
 debug( $logs->grep( 'SELECT' ) );
