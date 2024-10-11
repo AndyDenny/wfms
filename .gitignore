@@ -1,4 +1,4 @@
 /.idea/**
-*.jpg
+#*.jpg
 **.log
 /tmp/cache/*.txt
