@@ -1,6 +1,6 @@
 <?php
 return [
-    'dsn' => 'innoDB:host=localhost;dbname=ishop;charset=utf8mb4_unicode_ci',
+    'dsn' => 'mysql:host=localhost;dbname=ishop;charset=utf8',
     'user' => 'root',
     'password' => ''
 

@@ -12,9 +12,13 @@
 
 <h1>Default page layout</h1>
 
-<?=$name;?>
-<?=$age;?>
-<? debug($names);?>
 <?=$content;?>
+<?
+$logs = R::getDatabaseAdapter()
+    ->getDatabase()
+    ->getLogger();
+debug( $logs->grep( 'SELECT' ) );
+;?>
+
 </body>
 </html>
