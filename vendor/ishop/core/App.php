@@ -9,7 +9,7 @@ class App
 
     public function __construct()
     {
-        $query = trim($_SERVER['REDIRECT_QUERY_STRING'], '/');
+        $query = trim($_SERVER['REQUEST_URI'], '/');
         session_start();
         self::$app = Registry::instance();
         $this->getParams();
