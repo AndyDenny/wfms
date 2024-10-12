@@ -12,6 +12,8 @@ class MainController extends AppController
     public function indexAction(){
 //        $this->setMeta(App::$app->getProperty('shop_name'), 'MainPageDescription', 'MainPageKeywords');
         $this->setMeta('MainPageTitle', 'MainPageDescription', 'MainPageKeywords');
+        $brands = R::find('brand','LIMIT 3');
+        $this->set(compact('brands'));
     }
 
 }
