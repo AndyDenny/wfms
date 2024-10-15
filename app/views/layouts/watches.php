@@ -7,7 +7,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-    <?=$this->getMeta();?>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <!--Custom-Theme-files-->
     <!--theme-style-->
@@ -16,7 +15,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="css/memenu.css" rel="stylesheet" type="text/css" media="all" />
-
 </head>
 <body>
 <!--top-header-->
