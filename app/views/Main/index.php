@@ -3,13 +3,13 @@
     <div  id="top" class="callbacks_container">
         <ul class="rslides" id="slider4">
             <li>
-                <img src="images/bnr-1.jpg" alt=""/>
+                <img src="/images/bnr-1.jpg" alt=""/>
             </li>
             <li>
-                <img src="images/bnr-2.jpg" alt=""/>
+                <img src="/images/bnr-2.jpg" alt=""/>
             </li>
             <li>
-                <img src="images/bnr-3.jpg" alt=""/>
+                <img src="/images/bnr-3.jpg" alt=""/>
             </li>
         </ul>
     </div>
@@ -40,11 +40,12 @@
 <?php endif;?>
 <?php if ($hits) :?>
 <!--product-starts-->
+<?php $curr = \ishop\App::$app->getProperty('currency')?>
 <div class="product">
     <div class="container">
         <div class="product-top">
             <div class="product-one">
-                <?foreach ($hits as $hit):?>
+                <?php foreach ($hits as $hit):?>
                     <div class="col-md-3 product-left">
                         <div class="product-main simpleCart_shelfItem">
                             <a href="product/<?=$hit->alias?>" class="mask">
@@ -54,9 +55,9 @@
                                 <h3><?=$hit->title?></h3>
                                 <p><?=$hit->description?></p>
                                 <h4><a class="add-to-cart-link" href="cart/add?id=<?=$hit->id?>"><i></i></a>
-                                    <span class=" item_price">$ <?=$hit->price?></span>
+                                    <span class=" item_price"><?=$curr['symbol_left'] ?? ''?><?=$hit->price * $curr['value']?> <?=$curr['symbol_right'] ?? ''?></span>
                                     <?php if($hit->old_price):?>
-                                        <small><del><?=$hit->old_price?></del></small>
+                                        <small><del><?=$curr['symbol_left']?? ''?><?=$hit->old_price * $curr['value']?> <?=$curr['symbol_right'] ?? ''?></del></small>
                                     <?php endif;?>
                                 </h4>
                             </div>
@@ -74,7 +75,7 @@
                             <?php endif;?>
                         </div>
                     </div>
-                    <?endforeach;?>
+                    <?php endforeach;?>
                     <div class="clearfix"></div>
             </div>
         </div>
