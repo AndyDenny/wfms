@@ -2,6 +2,7 @@
 
 namespace app\widgets\currency;
 
+use ishop\App;
 use RedBeanPHP\R;
 
 class Currency
@@ -14,11 +15,12 @@ class Currency
         public function __construct(){
             $this->tpl = __DIR__ . '/currency_tpl/currency.php';
             $this->run();
+
         }
         protected function run(){
-
-            $this->getHtml();
-
+            $this->currencies  = App::$app->getProperty('currencies');
+            $this->currency  = App::$app->getProperty('currency');
+            echo $this->getHtml();
         }
 
         public static function getCurrencies(){
@@ -36,9 +38,12 @@ class Currency
             $currency['code'] = $key;
             return $currency;
         }
-        public function getHtml(): string
+        public function getHtml()
         {
-
+            ob_start();
+            require_once $this->tpl;
+            return ob_get_clean();
         }
+
 
 }
