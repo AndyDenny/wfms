@@ -22,7 +22,7 @@ class Cache{
         if(file_exists($file)){
             $content = unserialize(file_get_contents($file));
             if(time() <= $content['endtime']){
-                return $content;
+                return $content['data'];
             }
             unlink($file);
         }
