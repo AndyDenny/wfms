@@ -3,6 +3,7 @@
 use ishop\Router;
 
 //specific routes
+Router::add('^product/(?P<alias>[a-z-0-9-]+)/?$', ['controller'=>'Product','action'=>'view']);
 
 
 //default routes
