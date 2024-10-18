@@ -32,11 +32,9 @@
                         </div>
                     </div>
                     <?php
-
                     $curr = \ishop\App::$app->getProperty('currency');
                     $categories = \ishop\App::$app->getProperty('categories');
                     ?>
-
                     <div class="col-md-7 single-top-right">
                         <div class="single-para simpleCart_shelfItem">
                             <h2><?=$product->title?></h2>
@@ -132,50 +130,35 @@
                         </li>
                     </ul>
                 </div>
+                <?php if($related):?>
                 <div class="latestproducts">
                     <div class="product-one">
-                        <div class="col-md-4 product-left p-left">
+                        <h3>С этим товаром покупают</h3>
+                        <?php foreach ($related as $item):?>
+                            <div class="col-md-4 product-left p-left">
                             <div class="product-main simpleCart_shelfItem">
-                                <a href="single.html" class="mask"><img class="img-responsive zoom-img" src="images/p-1.png" alt="" /></a>
+                                <a href="product/<?=$item['alias']?>" class="mask"><img class="img-responsive zoom-img" src="images/<?=$item['img']?>" alt="" /></a>
                                 <div class="product-bottom">
-                                    <h3>Smart Watches</h3>
+                                    <h3><?=$item['title']?></h3>
                                     <p>Explore Now</p>
-                                    <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ 329</span></h4>
+                                    <h4>
+                                        <a data-id="<?=$item['id']?>" class="item_add add-to-cart-link" href="cart/add?=<?=$item['id']?>"><i></i></a>
+                                        <span class="item_price"><?=$curr['symbol_left'] ?? ''?><?=$item['price'] * $curr['value']?> <?=$curr['symbol_right'] ?? ''?></span>
+                                    </h4>
+                                    <?php if($item['old_price']):?>
+                                        <small><del><?=$curr['symbol_left']?? ''?><?=$item['old_price'] * $curr['value']?> <?=$curr['symbol_right'] ?? ''?></del></small>
+                                    <?php endif;?>
                                 </div>
                                 <div class="srch">
                                     <span>-50%</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 product-left p-left">
-                            <div class="product-main simpleCart_shelfItem">
-                                <a href="single.html" class="mask"><img class="img-responsive zoom-img" src="images/p-2.png" alt="" /></a>
-                                <div class="product-bottom">
-                                    <h3>Smart Watches</h3>
-                                    <p>Explore Now</p>
-                                    <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ 329</span></h4>
-                                </div>
-                                <div class="srch">
-                                    <span>-50%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 product-left p-left">
-                            <div class="product-main simpleCart_shelfItem">
-                                <a href="single.html" class="mask"><img class="img-responsive zoom-img" src="images/p-3.png" alt="" /></a>
-                                <div class="product-bottom">
-                                    <h3>Smart Watches</h3>
-                                    <p>Explore Now</p>
-                                    <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ 329</span></h4>
-                                </div>
-                                <div class="srch">
-                                    <span>-50%</span>
-                                </div>
-                            </div>
-                        </div>
+                        <?php endforeach;?>
                         <div class="clearfix"></div>
                     </div>
                 </div>
+                <?php endif;?>
             </div>
             <div class="col-md-3 single-right">
                 <div class="w_sidebar">
