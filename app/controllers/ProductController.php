@@ -14,14 +14,18 @@ class ProductController extends AppController
         if(!$product){
             throw new \Exception('Product not found or not exist...',404);
         }
+
 //        TODO - breadcrumbs
-//        TODO - recommended products
+
         $related = R::getAll('SELECT * FROM related_product JOIN product ON product.id = related_product.related_id WHERE related_product.product_id = ?',[$product->id]);
+
 //        TODO - vatched products
-//        TODO - gallery
+
+        $gallery = R::findAll('gallery', 'product_id = ? ', [$product->id]);
+
 //        TODO - modification product
 
         $this->setMeta($product->title,$product->description,$product->keywords);
-        $this->set(compact('product','related'));
+        $this->set(compact('product','related', 'gallery'));
     }
 }
