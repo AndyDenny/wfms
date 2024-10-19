@@ -149,6 +149,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </div>
 </div>
 <!--jQuery(necessary for Bootstrap's JavaScript plugins)-->
+<?php $curr = \ishop\App::$app->getProperty('currency')?>
+    <script>
+        var path = '<?=PATH;?>',
+            course = '<?=$curr['value'];?>',
+            symbolLeft = '<?=$curr['symbol_left'];?>',
+            symbolRight = '<?=$curr['symbol_right'];?>',
+    </script>
 <script src="js/jquery-1.11.0.min.js"></script>
 <!--start-menu-->
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
