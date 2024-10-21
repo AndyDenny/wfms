@@ -20,12 +20,13 @@ $('body').on('click','.add-to-cart-link',function (e) {
     var id = $(this).data('id');
     var qty = $('.quantity input').val() ? $('.quantity input').val() : 1;
     var mod = $('.available select').val();
+    console.log("js mod -" + mod)
     $.ajax({
        url : '/cart/add',
        data : {id : id, qty : qty, mod: mod},
        type : 'POST',
        success: function(respons){
-           console.log('success');
+           // console.log('success');
             showCart(respons);
        },
         error: function () {
