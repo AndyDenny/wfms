@@ -85,7 +85,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!--bottom-header-->
 <div class="content">
 <!--    --><?php //session_destroy();?>
-    <?php debug($_SESSION);?>
+<!--    --><?php //debug($_SESSION);?>
     <?=$content?>
 </div>
 <!--information-starts-->
@@ -150,6 +150,26 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
     </div>
 </div>
+    <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Корзина</h4>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>
+                    <a href="cart/view" type="button" class="btn btn-primary">Оформить заказ</a>
+                    <button type="button" class="btn btn-danger" onclick="clearCart()">Очистить корзину</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 <!--jQuery(necessary for Bootstrap's JavaScript plugins)-->
 <?php $curr = \ishop\App::$app->getProperty('currency')?>
     <script>
@@ -159,6 +179,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         var symbolRight = '<?=$curr['symbol_right'];?>';
     </script>
 <script src="js/jquery-1.11.0.min.js"></script>
+<script src="js/bootstrap.js"></script>
+
 <!--start-menu-->
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--dropdown-->

@@ -12,7 +12,6 @@ class CartController extends AppController
         $qty = !empty($_POST['qty']) ? $_POST['qty'] : null;
         $mod_id = !empty($_POST['mod']) ? $_POST['mod'] : null;
         $mod = null;
-        debug($qty);
         if($id){
             $product = R::findOne('product', 'id = ?', [$id]);
             if(!$product){

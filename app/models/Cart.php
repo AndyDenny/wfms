@@ -41,7 +41,7 @@ class Cart extends AppModel{
             $title = $product->title;
             $price = $product->price;
         }
-        if($_SESSION['cart'][$ID]){
+        if($_SESSION['cart'][$ID]){ // Notice: Undefined index: 1-3 in \domains\wfms\app\models\Cart.php on line 44
             $_SESSION['cart'][$ID]['qty'] += $qty;
         }else{
             $_SESSION['cart'][$ID] = [
