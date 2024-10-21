@@ -14,3 +14,30 @@ $('.available select').change(function (){
     }
 });
 
+// Cart-start
+$('body').on('click','.add-to-cart-link',function (e) {
+    e.preventDefault();
+    var id = $(this).data('id');
+    var qty = $('.quantity input').val() ? $('.quantity input').val() : 1;
+    var mod = $('.available select').val();
+    $.ajax({
+       url : '/cart/add',
+       data : {id : id, qty : qty, mod: mod},
+       type : 'POST',
+       success: function(respons){
+           console.log('success');
+            showCart(respons);
+       },
+        error: function () {
+            console.warn('Error Ajax sending.');
+        }
+    });
+});
+
+function showCart(cart) {
+    console.log(cart)
+}
+
+
+// Cart-end
+
