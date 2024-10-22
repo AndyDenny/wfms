@@ -75,6 +75,18 @@ function getCart() {
         }
     });
 }
+function clearCart() {
+    $.ajax({
+        url : '/cart/clear',
+        type : 'POST',
+        success: function(respons){
+            showCart(respons);
+        },
+        error: function () {
+            console.warn('Error Ajax sending.');
+        }
+    });
+}
 
 // Cart-end
 

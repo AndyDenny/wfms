@@ -95,7 +95,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!--bottom-header-->
 <div class="content">
 <!--    --><?php //session_destroy();?>
-<!--    --><?php //debug($_SESSION);?>
+    <?php debug($_SESSION);?>
     <?=$content?>
 </div>
 <!--information-starts-->

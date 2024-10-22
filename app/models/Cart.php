@@ -64,4 +64,26 @@ class Cart extends AppModel{
         unset($_SESSION['cart'][$id]);
     }
 
+    public static function recalculation($currency){
+
+        if (isset($_SESSION['cart.currency'])){
+            if ($_SESSION['cart.currency']['base']){
+                $_SESSION['cart.sum'] *= $_SESSION['cart.value'];
+            }else{
+                $_SESSION['cart.sum'] = $_SESSION['cart.sum'] / $_SESSION['cart.currency']['value'] * $currency->value;
+            }
+            foreach($_SESSION['cart'] as $key => $value){
+                if($_SESSION['cart.currency']['base']){
+                    $_SESSION['cart'][$key]['price'] *= $currency->value;
+                }else{
+                    $_SESSION['cart'][$key]['price'] = $_SESSION['cart'][$key]['price'] / $_SESSION['cart.currency']['value'] * $currency->value;
+                }
+            }
+            foreach($currency as $k => $v){
+                $_SESSION['cart.currency'][$k] = $v;
+            }
+        }
+
+    }
+
 }
