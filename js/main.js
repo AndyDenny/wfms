@@ -42,9 +42,39 @@ function showCart(cart) {
     }
     $("#cart .modal-body").html(cart);
     $("#cart").modal();
-    console.log(cart)
+    if( $(".cart-sum").text() ){
+        $(".simpleCart_total").html($('#cart .cart-sum').text());
+    }else{
+        $(".simpleCart_total").text('Empty cart');
+    }
 }
 
+$("#cart .modal-body").on("click", ".del-item" ,function () {
+    var id = $(this).data('id');
+    $.ajax({
+       url: 'cart/delete',
+       data: {id : id},
+       method : 'POST',
+       success: function(respon){
+
+       },
+        error: function () {
+            console.warn('Error Ajax sending id product.');
+        }
+    });
+});
+function getCart() {
+    $.ajax({
+        url : '/cart/add',
+        type : 'POST',
+        success: function(respons){
+            showCart(respons);
+        },
+        error: function () {
+            console.warn('Error Ajax sending.');
+        }
+    });
+}
 
 // Cart-end
 

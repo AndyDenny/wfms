@@ -3072,3 +3072,6 @@ ul.tag-men {
 #cart tbody a>img{
 	max-height: 50px;
 }
+.del-item{
+	cursor: pointer;
+}
