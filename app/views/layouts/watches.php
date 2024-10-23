@@ -56,12 +56,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <?php endif;?>
                         </div>
                     </a>
-<!--                    <a href="checkout.html">-->
-<!--                        <div class="total">-->
-<!--                            <span class="simpleCart_total"></span></div>-->
-<!--                        <img src="images/cart-1.png" alt="" />-->
-<!--                    </a>-->
-<!--                    <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>-->
                     <div class="clearfix"> </div>
                 </div>
             </div>
@@ -87,15 +81,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         ]);?>
                     </div>
                 </div>
-
             <div class="clearfix"> </div>
+        </div>
+        <div class="col-md-3 header-right">
+            <div class="search-bar">
+                <form action="search" method="post" autocomplete="off">
+                    <input class="typeahead" id="typeahead" name="s" type="text" value=""/>
+                    <input type="submit" value="">
+                </form>
+                <div class="clearfix"> </div>
+            </div>
         </div>
     </div>
 </div>
 <!--bottom-header-->
 <div class="content">
 <!--    --><?php //session_destroy();?>
-    <?php debug($_SESSION);?>
+<!--    --><?php //debug($_SESSION);?>
     <?=$content?>
 </div>
 <!--information-starts-->
@@ -190,6 +192,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </script>
 <script src="js/jquery-1.11.0.min.js"></script>
 <script src="js/bootstrap.js"></script>
+<script src="js/typeahead.bundle.js"></script>
 
 <!--start-menu-->
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
