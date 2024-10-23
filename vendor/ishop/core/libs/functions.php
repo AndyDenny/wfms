@@ -16,3 +16,7 @@ function redirect($http = false){
     header("Location: $redirect");
     exit();
 }
+
+function hsc($string){
+    return htmlspecialchars($string,ENT_QUOTES);
+}
