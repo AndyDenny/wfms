@@ -85,7 +85,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
         <div class="col-md-3 header-right">
             <div class="search-bar">
-                <form action="search" method="post" autocomplete="off">
+                <form action="search" autocomplete="off">
                     <input class="typeahead" id="typeahead" name="s" type="text" value=""/>
                     <input type="submit" value="">
                 </form>

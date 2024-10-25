@@ -6,12 +6,12 @@ use http\Exception;
 
 class Router
 {
- protected static  $routes = [];
- protected static  $route = [];
+    protected static  $routes = [];
+    protected static  $route = [];
 
- public static function add($regexp, $route = []){
+    public static function add($regexp, $route = []){
      self::$routes[$regexp] = $route;
- }
+    }
 
     /**
      * @return array
@@ -20,7 +20,6 @@ class Router
     {
         return self::$routes;
     }
-
     /**
      * @return array
      */
@@ -102,7 +101,7 @@ class Router
 
     public static function removeQueryString($url)
     {
-        $params = explode('/?',$url,2);
+        $params = explode('&',$url,2);
         if($url){
             if(false === strpos($params[0], '=') ){
                 return $params[0];
