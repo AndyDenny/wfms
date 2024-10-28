@@ -212,6 +212,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </script>
 <script src="js/jquery-1.11.0.min.js"></script>
 <script src="js/bootstrap.js"></script>
+<script src="js/validator.js"></script>
 <script src="js/typeahead.bundle.js"></script>
 
 <!--start-menu-->

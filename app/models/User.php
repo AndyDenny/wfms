@@ -43,7 +43,7 @@ class User extends AppModel{
             }
             return false;
         }
-        return false;
+        return true;
     }
 
 }

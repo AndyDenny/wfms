@@ -48,8 +48,7 @@ abstract class Model{
     /**
      * @return array
      */
-    public function getErrors(): array
-    {
+    public function getErrors(){
         $errors = '<ul>';
         foreach ($this->errors as $error){
             foreach($error as $item){
@@ -57,8 +56,8 @@ abstract class Model{
             }
         }
         $errors .= '</ul>';
-        $_SESSION['error'] = $errors;
-        return $_SESSION;
+        return $_SESSION['error'] = $errors;
+
     }
 
 }
