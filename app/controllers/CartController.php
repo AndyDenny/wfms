@@ -20,9 +20,9 @@ class CartController extends AppController
             if($mod_id){
                 $mod = R::findOne('modification' , 'id = ? AND product_id = ?', [$mod_id, $id]);
             }
+            $cart = new Cart();
+            $cart->addToCart($product, $qty, $mod);
         }
-        $cart = new Cart();
-        $cart->addToCart($product, $qty, $mod);
         if($this->isAjax()){
             $this->loadView('cart_modal');
         }
