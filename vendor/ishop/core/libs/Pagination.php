@@ -93,7 +93,6 @@ class Pagination
         $url = explode('?', $url);
         $uri = $url[0] . '?';
         if (isset($url[1]) && $url[1] != ''){
-            echo 'TR';
             $params = explode('&', $url[1]);
             foreach($params as $param){
                 if(preg_match("#page-#",$param)){
