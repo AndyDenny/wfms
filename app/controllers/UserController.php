@@ -28,10 +28,20 @@ class UserController extends AppController{
         $this->setMeta('Registration');
     }
     public function loginAction(){
-
+        if(!empty($_POST)){
+            $user = new User();
+            if ($user->login()){
+                $_SESSION['success'] = 'Login success!';
+            }else{
+                $_SESSION['error'] = 'Login or password wrong!';
+            }
+            redirect();
+        }
+        $this->setMeta('Login user');
     }
     public function logoutAction(){
-
+        if($_SESSION['user']) unset($_SESSION['user']);
+        redirect();
     }
 
 }
