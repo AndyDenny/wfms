@@ -126,9 +126,12 @@ $("body").on('change','.w_sidebar input',function () {
                 $(".product-one").hide();
             },
             success: function (res) {
-                console.log(res)
                 $(".product-one").html(res).show();
-
+                var url = location.search.replace(/filter(.+?)(&|$)/g,'');
+                var newURL = location.pathname + url + (location.search ? "&" : "?") + "filter=" + data;
+                newURL = newURL.replace('&&', '&');
+                newURL = newURL.replace('?&', '?');
+                history.pushState({}, '', newURL);
             },
             error: function () {
                 

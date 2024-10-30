@@ -43,6 +43,15 @@ class Filter{
         }
         return $attrs;
     }
+
+    public static function getFilters(){
+        $filter = null;
+        if(!empty($_GET['filter'])){
+            $filter = preg_replace("#[^\d,]+#",'',$_GET['filter']);
+            $filter = rtrim($filter, ",");
+        }
+        return $filter;
+    }
     protected function getHtml(){
         ob_start();
         require $this->tpl;
