@@ -110,3 +110,31 @@ $('#typeahead').bind('typeahead:select',function (ev, suggestion) {
     window.location = path + '/search/?s=' + encodeURIComponent(suggestion.title);
 });
 // Search end
+
+$("body").on('change','.w_sidebar input',function () {
+    var checked = $(".w_sidebar input:checked");
+    var data =  '';
+    checked.each(function () {
+        data += this.value + ',';
+    });
+    if(data){
+        $.ajax({
+            url : location.href,
+            data : {filter : data},
+            type : 'GET',
+            beforeSend: function(){
+                $(".product-one").hide();
+            },
+            success: function (res) {
+                console.log(res)
+                $(".product-one").html(res).show();
+
+            },
+            error: function () {
+                
+            }
+        });
+    }else{
+        window.location = location.pathname;
+    }
+});

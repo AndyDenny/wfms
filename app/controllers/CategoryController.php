@@ -25,10 +25,16 @@ class CategoryController extends AppController {
 
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
         $perPage = App::$app->getProperty('pagination');
+
+
         $total = R::count('product',"category_id IN ($ids)");
         $pagination = new Pagination($page, $perPage, $total);
-        $start = $pagination->getStart();
 
+        if($this->isAjax()){
+            debug($_GET,1);
+        }
+
+        $start = $pagination->getStart();
         $products = R::find('product', "category_id IN ($ids) LIMIT $start, $perPage");
         $this->setMeta($category->title, $category->description, $category->keywords);
         $this->set(compact('products','breadcrumbs', 'pagination','total'));
