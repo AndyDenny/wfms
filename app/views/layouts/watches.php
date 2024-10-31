@@ -9,6 +9,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
     <?=$this->getMeta();?>
     <base href="/">
+    <link rel="icon" href="public\images\star.png" type="image/png">
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <!--Custom-Theme-files-->
     <link href="public/megamenu/css/ionicons.min.css" rel="stylesheet" type="text/css" media="all" />
