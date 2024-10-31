@@ -13,14 +13,14 @@
 <h1>Default page layout</h1>
 
 
-<?debug($names);?>
-<?=$content;?>
-<?
-$logs = \R::getDatabaseAdapter()
-    ->getDatabase()
-    ->getLogger();
-debug( $logs->grep( 'SELECT' ) );
-;?>
+<?//debug($names);?>
+<?php //=$content;?>
+<?//
+//$logs = \R::getDatabaseAdapter()
+//    ->getDatabase()
+//    ->getLogger();
+//debug( $logs->grep( 'SELECT' ) );
+//;?>
 
 </body>
 </html>

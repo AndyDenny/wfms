@@ -12,7 +12,6 @@ class Router
     public static function add($regexp, $route = []){
      self::$routes[$regexp] = $route;
     }
-
     /**
      * @return array
      */
@@ -75,7 +74,6 @@ class Router
         }
         return false;
     }
-
     /**
      * @return string
      * in format CamelCase
