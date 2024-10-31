@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <base href="/adminlte/">
-    <title>AdminLTE 2 | Dashboard</title>
+    <?=$this->getMeta();?>
+    <link rel="icon" href="<?=PATH?>\images\star.png" type="image/png">
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -627,5 +628,11 @@
 <script src="dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+<?
+$logs = \R::getDatabaseAdapter()
+    ->getDatabase()
+    ->getLogger();
+debug( $logs->grep( 'SELECT' ) );
+?>
 </body>
 </html>

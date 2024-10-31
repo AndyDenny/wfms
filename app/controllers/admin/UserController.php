@@ -1,0 +1,26 @@
+<?php
+
+namespace app\controllers\admin;
+
+use app\models\User;
+
+class UserController extends AppController{
+    public function loginAdminAction(){
+        if(!empty($_POST)){
+            $user = new User();
+            if($user->login(true)){
+                $_SESSION['success'] = 'Authorised OK';
+            }else{
+                $_SESSION['error'] = 'Login or Password incorrect';
+            }
+            if(User::isAdmin()){
+                redirect(ADMIN);
+            }else{
+                redirect();
+            }
+
+        }
+
+        $this->layout = 'login';
+    }
+}
