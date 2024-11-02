@@ -368,6 +368,16 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
+        <?php if (isset($_SESSION['error'])):?>
+            <div class="alert alert-danger">
+                <?php echo $_SESSION['error']; unset($_SESSION['error'])?>
+            </div>
+        <?php endif;?>
+        <?php if (isset($_SESSION['success'])):?>
+            <div class="alert alert-success">
+                <?php echo $_SESSION['success']; unset($_SESSION['success'])?>
+            </div>
+        <?php endif;?>
         <?=$content;?>
     </div>
     <!-- /.content-wrapper -->
@@ -617,6 +627,7 @@
 <script src="dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+<script src="myscript.js"></script>
 <?
 $logs = \R::getDatabaseAdapter()
     ->getDatabase()

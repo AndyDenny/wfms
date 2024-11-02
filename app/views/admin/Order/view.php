@@ -9,7 +9,14 @@
         <li class="active">Заказ № <?=$order['id']?></li>
     </ol>
 </section>
-
+<section class="content-header">
+        <?php if(!$order['status']):?>
+            <a href="<?=ADMIN;?>/order/change?id=<?=$order['id'];?>&status=1" class="btn btn-success btn-xs" >Одобрить</a>
+        <?php else:?>
+            <a href="<?=ADMIN;?>/order/change?id=<?=$order['id'];?>&status=0" class="btn btn-default btn-xs" >Доработать</a>
+        <?php endif;?>
+        <a href="<?=ADMIN;?>/order/delete?id=<?=$order['id'];?>" class="btn btn-danger btn-xs delete" >Удалить</a>
+</section>
 <!-- Main content -->
 <section class="content">
     <!-- Small boxes (Stat box) -->

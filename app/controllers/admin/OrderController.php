@@ -29,4 +29,19 @@ class OrderController extends AppController{
         $this->setMeta('Order ($order_id) detail page');
         $this->set(compact('order','order_products'));
     }
+
+    public function changeAction(){
+        $order_id = $this->getRequestID();
+        $status = !empty($_GET['status']) ? '1' : '0';
+        $order = R::load('order', $order_id);
+        if(!$order){
+            throw new \Exception('Order ID not found');
+        }
+        $order->status = $status;
+        $order->update_at = date("Y-m-d H:i:s");
+        $orderq = R::store($order);
+        $_SESSION['success'] = 'Изменения сохранены';
+        redirect();
+    }
+
 }
