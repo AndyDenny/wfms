@@ -8,9 +8,7 @@ class UserController extends AppController{
     public function loginAdminAction(){
         if(!empty($_POST)){
             $user = new User();
-            if($user->login(true)){
-                $_SESSION['success'] = 'Authorised OK';
-            }else{
+            if(!$user->login(true)){
                 $_SESSION['error'] = 'Login or Password incorrect';
             }
             if(User::isAdmin()){
