@@ -47,6 +47,10 @@
                                 <td><?=$order['update_at']?></td>
                             </tr>
                             <tr>
+                                <td>Кол-во позиций в заказе</td>
+                                <td><?=count($order_products); ?></td>
+                            </tr>
+                            <tr>
                                 <td>Статус</td>
                                 <td><?=$order['status'] ? 'Завершен' : 'Новый' ?></td>
                             </tr>
