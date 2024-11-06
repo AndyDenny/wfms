@@ -20,6 +20,7 @@
                         'tpl' => WWW . '/menu/category_admin.php',
                         'container' => 'div',
                         'cache' => 0,
+                        'cacheKey' => 'admin_menu',
                         'class' => 'list',
                     ])?>
                 </div>

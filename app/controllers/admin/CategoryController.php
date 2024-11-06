@@ -18,7 +18,7 @@ class CategoryController extends AppController{
         if ($children){
             $errors .= '<li>Удаление невозможно - присутствют вложенные категории</li>';
         }
-        $products = R::count('product', 'parent_id = ?', [$id]);
+        $products = R::count('product', 'category_id = ?', [$id]);
         if ($products){
             $errors .= '<li>Удаление невозможно - присутствют вложенные товары</li>';
         }

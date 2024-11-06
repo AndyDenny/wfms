@@ -42,7 +42,7 @@ class Menu{
         if(!$this->menuHtml){
             $this->data = App::$app->getProperty('categories');
             if(!$this->data){
-                $this->data = R::getAssoc('SELECT * FROM {$this->table}');
+                $this->data = R::getAssoc("SELECT * FROM {$this->table}");
             }
             $this->three = $this->getThree();
             $this->menuHtml = $this->getMenuHtml($this->three);
