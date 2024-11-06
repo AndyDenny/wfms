@@ -6,7 +6,7 @@ use ishop\App;
 
 class Category extends AppModel{
 
-    public $attribuies = [
+    public $attributes = [
         'title' => '',
         'parent_id' => '',
         'keywords' => '',

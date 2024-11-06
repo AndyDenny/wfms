@@ -2,6 +2,7 @@
 
 namespace app\controllers\admin;
 
+use app\models\AppModel;
 use app\models\Category;
 use RedBeanPHP\R;
 
@@ -38,13 +39,19 @@ class CategoryController extends AppController{
             $category = new Category();
             $data = $_POST;
             $category->load($data);
-            if($category->validate($data)){
+
+            if(!$category->validate($data)){
                 $category->getErrors();
                 redirect();
             }
             if($id = $category->save('category')){
-
+                $alias = AppModel::createAlias('category', 'alias', $data['title'], $id);
+                $catg = R::load('category', $id);
+                $catg->alias = $alias;
+                R::store($catg);
+                $_SESSION['success'] = "Категория `{$data['title']}` добавлена";
             }
+            redirect();
         }
         $this->setMeta('Добавить категорию');
     }
