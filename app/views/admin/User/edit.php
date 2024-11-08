@@ -57,6 +57,40 @@
                 </form>
             </div>
             <h3>Заказы пользователя</h3>
+            <div class="box">
+                <div class="box-body">
+                    <?php if($orders):?>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Статус</th>
+                                    <th>Поная стоимость</th>
+                                    <th>Дата создания</th>
+                                    <th>Дата обновления</th>
+                                    <th>Действие</th>
+                                </tr>
+                                <?php foreach($orders as $order):?>
+                                    <?php $status = $order['status'] ? 'success' : '' ?>
+                                    <tr class="<?=$status?>">
+                                        <td><?=$order['id']?></td>
+                                        <td><?=$order['status'] ? 'Завершен' : 'Новый' ?></td>
+                                        <td><?=$order['sum']?> <?=$order['currency']?></td>
+                                        <td><?=$order['date']?></td>
+                                        <td><?=$order['update_at']?></td>
+                                        <td>
+                                            <a href="<?=ADMIN?>/order/view?id=<?=$order['id']?>"><i class="fa fa-fw fa-eye"></i></a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach;?>
+                            </table>
+                        </div>
+                    <?php else:?>
+                        <p class="text-danger">Пока заказов нет</p>
+                    <?php endif;?>
+                </div>
+            </div>
+
         </div>
 
     </div>
